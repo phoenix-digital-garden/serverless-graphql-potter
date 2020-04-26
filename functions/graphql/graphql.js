@@ -9,7 +9,7 @@ const link = createHttpLink({
     uri: 'https://graphql.fauna.com/graphql',
     fetch,
     headers: {
-      Authorization: `Bearer ${process.env.FAUNA_ADMIN}`,
+      Authorization: `Bearer ${process.env.CLIENT_KEY}`,
     },
   });
 
@@ -27,8 +27,6 @@ const server = new ApolloServer({
     playground: true,
     introspection: true
 });
-
-// exports.handler = server.createHandler();
 
 exports.handler = server.createHandler({
     cors: {
