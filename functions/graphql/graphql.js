@@ -1,6 +1,6 @@
-const {ApolloServer} = require('apollo-server-lambda');
+// const {ApolloServer} = require('apollo-server-lambda');
 const { createHttpLink } = require('apollo-link-http');
-const { makeRemoteExecutableSchema, introspectSchema } = require('apollo-server-micro');
+const { ApolloServer, makeRemoteExecutableSchema, introspectSchema } = require('apollo-server-micro');
 const { client, query } = require('./db');
 const fetch = require('isomorphic-fetch');
 
