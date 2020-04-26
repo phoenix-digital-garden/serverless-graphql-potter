@@ -12,8 +12,7 @@ import {
 const GET_CHARACTERS = gql`
   query GetCharacters {
     allCharacters {
-      data {
-        _id
+      _id
       name
       house
       patronus
@@ -28,7 +27,6 @@ const GET_CHARACTERS = gql`
       wand
       boggart
       animagus
-      }
     }
   }
 `;
