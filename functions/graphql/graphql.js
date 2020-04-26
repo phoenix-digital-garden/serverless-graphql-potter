@@ -1,11 +1,25 @@
 const {ApolloServer} = require('apollo-server-lambda');
-const { resolvers } = require('./resolvers');
-const { typeDefs } = require('./schema');
+const { createHttpLink } = require('apollo-link-http');
+const { makeRemoteExecutableSchema, introspectSchema } = require('apollo-server-micro');
 const { client, query } = require('./db');
+const fetch = require('isomorphic-fetch');
+
+const link = createHttpLink({
+    uri: 'https://graphql.fauna.com/graphql',
+    fetch,
+    headers: {
+      Authorization: `Bearer ${process.env.CLIENT_KEY}`,
+    },
+  })
+
+const schema = makeRemoteExecutableSchema({
+    schema: introspectSchema(link),
+    link
+}),
+
 
 const server = new ApolloServer({
-    typeDefs,
-    resolvers,
+    schema,
     context: ({event}) => {
         return {client, query, headers: event.headers};
     },
@@ -17,12 +31,12 @@ const server = new ApolloServer({
 
 exports.handler = server.createHandler({
     cors: {
-        // origin: "*",
-        origin: [
-            'https://serverless-graphql-potter.netlify.com',
-            'http://serverless-graphql-potter.netlify.com',
-            'http://localhost',
-        ],
+        origin: "*",
+        // origin: [
+        //     'https://fauna-potter-test.netlify.com',
+        //     'http://fauna-potter-test.netlify.com',
+        //     'http://localhost',
+        // ],
         credentials: true
     }
 });

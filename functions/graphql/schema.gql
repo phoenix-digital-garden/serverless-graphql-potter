@@ -1,18 +1,11 @@
 
 type Query {
     allCharacters: [Character]!
-    characterById(_id: ID!): Character
-    characterByName(name: String!): Character
-
     allHouses: [House]!
-    houseById(_id: ID!): House
-    houseByName(name: String!): House
-
     allSpells: [Spell]!
 }
 
 type Character {
-    id: ID, 
     name: String!
     house: String
     patronus: String
@@ -30,7 +23,6 @@ type Character {
 }
 
 type House {
-    id: ID
     name: String
     colors: [String]
     founder: String
@@ -42,7 +34,6 @@ type House {
 }
 
 type Spell {
-    id: ID
     effect: String
     spell: String
     type: String

@@ -1,5 +1,5 @@
 const React = require('react');
-const fetch =require('isomorphic-fetch');
+const fetch = require('isomorphic-fetch');
 const {
     ApolloProvider,
     ApolloClient,

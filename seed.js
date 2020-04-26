@@ -1,5 +1,5 @@
 const fetch = require('node-fetch');
-const { client, query } = require('./src/functions/graphql/db');
+const { client, query } = require('./functions/graphql/db');
 const q = query;
 const potterEndPoint = `https://www.potterapi.com/v1/characters/?key=${process.env.POTTER_KEY}`;
 
@@ -31,7 +31,7 @@ fetch(potterEndPoint)
                     characterArray,
                     q.Lambda(
                         'character',
-                        q.Create(q.Collection('Characters'), {data: q.Var('character')})
+                        q.Create(q.Collection('Character'), {data: q.Var('character')})
                     )
                 )
             )
