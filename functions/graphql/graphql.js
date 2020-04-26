@@ -10,12 +10,12 @@ const link = createHttpLink({
     headers: {
       Authorization: `Bearer ${process.env.CLIENT_KEY}`,
     },
-  })
+  });
 
 const schema = makeRemoteExecutableSchema({
     schema: introspectSchema(link),
     link
-}),
+});
 
 
 const server = new ApolloServer({
