@@ -4,11 +4,12 @@ const { makeRemoteExecutableSchema, introspectSchema } = require('apollo-server-
 const { client, query } = require('./db');
 const fetch = require('isomorphic-fetch');
 
+
 const link = createHttpLink({
     uri: 'https://graphql.fauna.com/graphql',
     fetch,
     headers: {
-      Authorization: `Bearer ${process.env.CLIENT_KEY}`,
+      Authorization: `Bearer ${process.env.FAUNA_ADMIN}`,
     },
   });
 
