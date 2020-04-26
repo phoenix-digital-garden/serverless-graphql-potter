@@ -7,43 +7,8 @@ exports.typeDefs = gql`
         allSpells: [Spell]!
     }
 
-    type Mutation {
-        createCharacter(
-            name: String!
-            house: String
-            patronus: String
-            bloodStatus: String
-            role: String
-            school: String
-            deathEater: Boolean
-            dumbledoresArmy: Boolean
-            orderOfThePheonix: Boolean
-            ministryOfMagic: Boolean
-            alias: String
-            wand: String
-            boggart: String
-            animagus: String
-        ): Character
-        updateCharacter(
-            name: String!
-            house: String
-            patronus: String
-            bloodStatus: String
-            role: String
-            school: String
-            deathEater: Boolean
-            dumbledoresArmy: Boolean
-            orderOfThePheonix: Boolean
-            ministryOfMagic: Boolean
-            alias: String
-            wand: String
-            boggart: String
-            animagus: String
-        ): Character
-        deleteCharacter(id: ID!): Character
-    }
-
     type Character {
+        _id: ID, 
         name: String!
         house: String
         patronus: String
