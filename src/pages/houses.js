@@ -40,6 +40,10 @@ const Houses = () => {
   const [selectedHouse, setSelectedHouse] = React.useState([]);
 
   React.useEffect(() => {
+    console.log({characterData})
+  }, [characterData]);
+
+  React.useEffect(() => {
     const gryffindor =
       !characterLoading &&
       !characterError &&
