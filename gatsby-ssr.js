@@ -18,7 +18,7 @@ const httpLink = createHttpLink({
     return {
       headers: {
         ...headers,
-        authorization: `Bearer ${process.env.GATSBY_CLIENT_KEY}`,
+        authorization: `Bearer ${process.env.CLIENT_KEY}`,
       }
     }
   });
