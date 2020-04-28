@@ -12,21 +12,23 @@ import {
 const GET_CHARACTERS = gql`
   query GetCharacters {
     allCharacters {
-      _id
-      name
-      house
-      patronus
-      bloodStatus
-      role
-      school
-      deathEater
-      dumbledoresArmy
-      orderOfThePheonix
-      ministryOfMagic
-      alias
-      wand
-      boggart
-      animagus
+      data {
+        _id
+        name
+        house
+        patronus
+        bloodStatus
+        role
+        school
+        deathEater
+        dumbledoresArmy
+        orderOfThePheonix
+        ministryOfMagic
+        alias
+        wand
+        boggart
+        animagus
+      }
     }
   }
 `;
@@ -40,14 +42,16 @@ const Houses = () => {
   const [selectedHouse, setSelectedHouse] = React.useState([]);
 
   React.useEffect(() => {
-    console.log({characterData})
+    console.log({ characterData });
   }, [characterData]);
 
   React.useEffect(() => {
     const gryffindor =
       !characterLoading &&
       !characterError &&
-      characterData.allCharacters.filter((char) => char.house === "Gryffindor");
+      characterData.allCharacters.data.filter(
+        (char) => char.house === "Gryffindor"
+      );
 
     setSelectedHouse(gryffindor);
   }, [characterLoading, characterError, characterData]);
@@ -58,7 +62,7 @@ const Houses = () => {
         setSelectedHouse(
           !characterLoading &&
             !characterError &&
-            characterData.allCharacters.filter(
+            characterData.allCharacters.data.filter(
               (char) => char.house === "Gryffindor"
             )
         );
@@ -67,7 +71,7 @@ const Houses = () => {
         setSelectedHouse(
           !characterLoading &&
             !characterError &&
-            characterData.allCharacters.filter(
+            characterData.allCharacters.data.filter(
               (char) => char.house === "Hufflepuff"
             )
         );
@@ -76,7 +80,7 @@ const Houses = () => {
         setSelectedHouse(
           !characterLoading &&
             !characterError &&
-            characterData.allCharacters.filter(
+            characterData.allCharacters.data.filter(
               (char) => char.house === "Slytherin"
             )
         );
@@ -85,7 +89,7 @@ const Houses = () => {
         setSelectedHouse(
           !characterLoading &&
             !characterError &&
-            characterData.allCharacters.filter(
+            characterData.allCharacters.data.filter(
               (char) => char.house === "Ravenclaw"
             )
         );
@@ -94,7 +98,7 @@ const Houses = () => {
         setSelectedHouse(
           !characterLoading &&
             !characterError &&
-            characterData.allCharacters.filter(
+            characterData.allCharacters.data.filter(
               (char) => char.house === "Gryffindor"
             )
         );

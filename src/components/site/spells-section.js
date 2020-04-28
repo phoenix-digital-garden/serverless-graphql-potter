@@ -8,10 +8,12 @@ import Loading from "./loading";
 const GET_SPELLS = gql`
   query GetSpells {
     allSpells {
-      _id
-      effect
-      spell
-      type
+      data {
+        _id
+        effect
+        spell
+        type
+      }
     }
   }
 `;
@@ -44,7 +46,7 @@ const SpellsSection = () => {
     >
       {!spellsLoading &&
         !spellsError &&
-        spellsData.allSpells.map((spell) => (
+        spellsData.allSpells.data.map((spell) => (
           <Spell key={spell._id} {...spell} />
         ))}
     </section>

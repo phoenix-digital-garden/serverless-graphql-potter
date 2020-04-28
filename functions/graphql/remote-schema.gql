@@ -1,7 +1,6 @@
 
 type Query {
     allCharacters: [Character]!
-    allHouses: [House]!
     allSpells: [Spell]!
 }
 
@@ -20,17 +19,6 @@ type Character {
     wand: String
     boggart: String
     animagus: String
-}
-
-type House {
-    name: String
-    colors: [String]
-    founder: String
-    headOfHouse: String
-    houseGhost: String
-    mascot: String
-    members: [String]
-    values: [String]
 }
 
 type Spell {
