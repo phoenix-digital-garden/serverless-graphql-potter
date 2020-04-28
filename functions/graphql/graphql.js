@@ -8,7 +8,7 @@ const link = createHttpLink({
     uri: 'https://graphql.fauna.com/graphql',
     fetch,
     headers: {
-      Authorization: `Bearer ${process.env.CLIENT_KEY}`,
+      Authorization: `Bearer ${process.env.GATSBY_CLIENT_KEY}`,
     },
   })
 
