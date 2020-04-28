@@ -7,9 +7,11 @@ const {
 } = require('@apollo/client');
 const { setContext } = require('apollo-link-context');
 const {createHttpLink } = require('apollo-link-http');
+const fetch = require('isomorphic-fetch');
 
 const httpLink = createHttpLink({
     uri: 'https://graphql.fauna.com/graphql',
+    fetch
   });
   
   const authLink = setContext((_, { headers }) => {
