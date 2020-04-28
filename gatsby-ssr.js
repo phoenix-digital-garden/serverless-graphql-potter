@@ -1,4 +1,5 @@
 const React = require('react');
+require('dotenv').config();
 const {
     ApolloProvider,
     ApolloClient,
@@ -15,7 +16,7 @@ const httpLink = createHttpLink({
     return {
       headers: {
         ...headers,
-        authorization: 'Bearer fnADqYPHlEACAG6J0UomodiHpy4WM5lcdJFMAqqH',
+        authorization: `Bearer ${process.env.CLIENT_KEY}`,
       }
     }
   });
