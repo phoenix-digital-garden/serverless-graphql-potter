@@ -1,5 +1,5 @@
 const React = require('react');
-require('dotenv').config();
+// require('dotenv').config();
 const {
     ApolloProvider,
     ApolloClient,

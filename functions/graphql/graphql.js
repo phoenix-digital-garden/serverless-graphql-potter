@@ -1,5 +1,5 @@
 // const {ApolloServer} = require('apollo-server-lambda');
-require('dotenv').config();
+// require('dotenv').config();
 const {createHttpLink } = require('apollo-link-http');
 const { ApolloServer, makeRemoteExecutableSchema, introspectSchema } = require('apollo-server-micro');
 
